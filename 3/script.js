@@ -1,0 +1,39 @@
+text1=document.getElementById('text1');
+text2=document.getElementById('text2');
+text3=document.getElementById('text3');
+check1=document.getElementById('check1');
+check2=document.getElementById('check2');
+radio1=document.getElementById('radio1');
+radio2=document.getElementById('radio2');
+sel=document.getElementById('sel');
+
+
+window.onbeforeunload=function(){
+    localStorage.setItem('text1',text1.value);
+    localStorage.setItem('text2',text2.value);
+    localStorage.setItem('text3',text3.value);
+    localStorage.setItem('check1',check1.checked);
+    localStorage.setItem('check2',check2.checked);
+    localStorage.setItem('radio1',radio1.checked);
+    localStorage.setItem('radio2',radio2.checked);
+    localStorage.setItem('sel',sel.value);
+}
+
+window.document.addEventListener('DOMContentLoaded',function(){
+    text1.value=localStorage.getItem('text1');
+    text2.value=localStorage.getItem('text2');
+    text3.value=localStorage.getItem('text3');
+    if(localStorage.getItem('check1')==='true'){
+        check1.checked=true;
+    }
+    if(localStorage.getItem('check2')==='true'){
+        check2.checked=true;
+    }
+    if(localStorage.getItem('radio2')==='true'){
+        radio2.checked=true;
+    }
+    if(localStorage.getItem('radio1')==='true'){
+        radio1.checked=true;
+    }
+    sel.value=localStorage.getItem('sel');
+})
